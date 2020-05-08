@@ -19,18 +19,18 @@ This project aims to create a CNN model to classify German traffic signs.
 
 [//]: # (Image References)
 
-[figure1]: ./figures/figure1.jpg
-[figure2]: ./figures/figure2.jpg
-[figure3]: ./figures/figure3.jpg
+[figure1]: ./figures/figure1.JPG
+[figure2]: ./figures/figure2.JPG
+[figure3]: ./figures/figure3.JPG
 [figure4]: ./figures/figure4.jpg
 [figure5]: ./figures/figure5.jpg
-[figure6]: ./figures/figure6.jpg
-[figure7]: ./figures/figure7.jpg
-[figure8]: ./figures/figure8.jpg
-[figure9]: ./figures/figure9.jpg
-[figure10]: ./figures/figure10.jpg
-[figure11]: ./figures/figure11.jpg
-[figure12]: ./figures/figure12.jpg
+[figure6]: ./figures/figure6.JPG
+[figure7]: ./figures/figure7.JPG
+[figure8]: ./figures/figure8.JPG
+[figure9]: ./figures/figure9.JPG
+[figure10]: ./figures/figure10.JPG
+[figure11]: ./figures/figure11.JPG
+[figure12]: ./figures/figure12.JPG
 ---
 ## Introduction
 
