@@ -53,28 +53,28 @@ def rotate_images_randomly(images_batch):
 def transform_image(image,ang_range,shear_range,trans_range):
 
     # Rotation
-    ang_rot = np.random.uniform(ang_range)-ang_range/2
+    Rotation = np.random.uniform(ang_range)-ang_range/2
     rows,cols,ch = image.shape    
-    Rot_M = cv2.getRotationMatrix2D((cols/2,rows/2),ang_rot,1)
+    Rotation_Matrix = cv2.getRotationMatrix2D((cols/2,rows/2),Rotation,1)
 
     # Translation
-    tr_x = trans_range*np.random.uniform()-trans_range/2
-    tr_y = trans_range*np.random.uniform()-trans_range/2
-    Trans_M = np.float32([[1,0,tr_x],[0,1,tr_y]])
+    translation_x = trans_range*np.random.uniform()-trans_range/2
+    translation_y = trans_range*np.random.uniform()-trans_range/2
+    Translation_Matrix = np.float32([[1,0,translation_x],[0,1,translation_y]])
 
     # Shear
-    pts1 = np.float32([[5,5],[20,5],[5,20]])
+    points1 = np.float32([[5,5],[20,5],[5,20]])
 
-    pt1 = 5+shear_range*np.random.uniform()-shear_range/2
-    pt2 = 20+shear_range*np.random.uniform()-shear_range/2
+    point1 = 5+shear_range*np.random.uniform()-shear_range/2
+    point2 = 20+shear_range*np.random.uniform()-shear_range/2
 
-    pts2 = np.float32([[pt1,5],[pt2,pt1],[5,pt2]])
+    points2 = np.float32([[point1,5],[point2,point1],[5,point2]])
 
-    shear_M = cv2.getAffineTransform(pts1,pts2)
+    shear_Matrix = cv2.getAffineTransform(points1,points2)
         
-    image = cv2.warpAffine(image,Rot_M,(cols,rows))
-    image = cv2.warpAffine(image,Trans_M,(cols,rows))
-    image = cv2.warpAffine(image,shear_M,(cols,rows))
+    image = cv2.warpAffine(image,Rotation_Matrix,(cols,rows))
+    image = cv2.warpAffine(image,Translation_Matrix,(cols,rows))
+    image = cv2.warpAffine(image,shear_Matrix,(cols,rows))
     
     return image
 
@@ -84,8 +84,8 @@ def gen_new_images(X_train,y_train,n_add,ang_range,shear_range,trans_range):
     assert X_train.shape[0] == len(y_train)
     # Number of classes: 43
     n_class = len(np.unique(y_train))
-    X_arr = []
-    Y_arr = []
+    X_array = []
+    Y_array = []
     n_samples = np.bincount(y_train)
 
     for i in range(n_class):
@@ -95,11 +95,11 @@ def gen_new_images(X_train,y_train,n_add,ang_range,shear_range,trans_range):
             #print ("Adding %d samples for class %d" %(n_add-n_samples[i], i))
             for i_n in range(n_add - n_samples[i]):
                 img_trf = transform_image(X_train[i_n],ang_range,shear_range,trans_range) 
-                X_arr.append(img_trf)
-                Y_arr.append(i)
-#                print ("Number of images in class %d:%f" %(i, X_arr[0])) 
+                X_array.append(img_trf)
+                Y_array.append(i)
+#                print ("Number of images in class %d:%f" %(i, X_array[0])) 
            
-    X_arr = np.array(X_arr,dtype = np.float32())
-    Y_arr = np.array(Y_arr,dtype = np.float32())
+    X_array = np.array(X_array,dtype = np.float32())
+    Y_array = np.array(Y_array,dtype = np.float32())
    
-    return X_arr,Y_arr
+    return X_array,Y_array
