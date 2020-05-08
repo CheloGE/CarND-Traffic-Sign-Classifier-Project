@@ -46,7 +46,7 @@ First we load the data, divide them in training, validation and testing data set
 
 ![][figure3]
 
-First thing I noticed is that the classes are encoded in an ordinal way and that there are 43 classes in total, as shown below:
+First thing I noticed is that the classes were encoded in an ordinal way and that there are 43 classes in total, as shown below:
 
 ![][figure4]
 
