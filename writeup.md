@@ -5,11 +5,11 @@
 This project aims to create a CNN model to classify German traffic signs. 
 
 ### Dependencies
-This lab requires:
+This project requires:
 
 * [CarND Term1 Starter Kit](https://github.com/udacity/CarND-Term1-Starter-Kit)
 
-The lab environment can be created with CarND Term1 Starter Kit. Click [here](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md) for the details.
+
 
 ---
 
